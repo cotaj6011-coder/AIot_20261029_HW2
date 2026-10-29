@@ -1,5 +1,23 @@
 # HW2 多元線性回歸 Web 專案
 
+## Live Demo URL
+
+[https://aiot20261029hw2-te9ncekg3z38qqt5muuddj.streamlit.app/](https://aiot20261029hw2-te9ncekg3z38qqt5muuddj.streamlit.app/)
+
+## GitHub Repository URL
+
+[https://github.com/cotaj6011-coder/AIot_20261029_HW2](https://github.com/cotaj6011-coder/AIot_20261029_HW2)
+
+## Application Screenshots
+
+### Dashboard 首頁
+
+![Regression Studio Dashboard 首頁](docs/screenshots/dashboard-home.png)
+
+### 模型評估與預測圖表
+
+![Baseline、Selected、實際值與 95% 預測區間](docs/screenshots/model-evaluation.png)
+
 以 Streamlit 實作現代化 ML Dashboard 與完整 CRISP-DM 流程，包含兩個可執行預設回歸題、任意公開 HTTPS CSV、`LinearRegression`、訓練集內 5-fold CV 特徵選擇、MAE/MSE/RMSE/R²、95% OLS prediction interval 與殘差/假設診斷。
 
 ## Dashboard 功能
@@ -32,8 +50,6 @@ python -m venv .venv
 
 完整實測數值與限制見 [`docs/REPORT.md`](docs/REPORT.md)，逐階段證據見 [`docs/GOAL_STATUS.md`](docs/GOAL_STATUS.md)。
 
-本機視覺驗收截圖：[`ui-desktop.png`](ui-desktop.png)（桌面版）與 [`ui-mobile.png`](ui-mobile.png)（430px 響應式版）。
-
 指定驗證 URL：
 
 `https://raw.githubusercontent.com/Avik-Jain/100-Days-Of-ML-Code/master/datasets/50_Startups.csv`
@@ -45,7 +61,7 @@ Streamlit Community Cloud：建立 GitHub repo、將 `app.py` 設為入口、使
 - GitHub Repo：[AIot_20261029_HW2](https://github.com/cotaj6011-coder/AIot_20261029_HW2)
 - Live Web：[Regression Studio](https://aiot20261029hw2-te9ncekg3z38qqt5muuddj.streamlit.app/)
 
-公開站已實測 Problem A、Problem B、指定 `50_Startups.csv` Custom URL、模型分析、圖表及 CSV 下載。驗收截圖見 [`public-desktop.png`](public-desktop.png) 與 [`public-mobile.png`](public-mobile.png)。
+公開站已實測 Problem A、Problem B、指定 `50_Startups.csv` Custom URL、模型分析、圖表及 CSV 下載。
 
 ## 已知限制
 
