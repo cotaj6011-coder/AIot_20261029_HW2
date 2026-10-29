@@ -42,7 +42,7 @@ python -m venv .venv
 
 Streamlit Community Cloud：建立 GitHub repo、將 `app.py` 設為入口、使用 `requirements.txt`。部署後依 `docs/SUBMISSION_CHECKLIST.md` 以無痕視窗驗證。
 
-- GitHub Repo：`WAITING_FOR_USER`
+- GitHub Repo：[AIot_20261029_HW2](https://github.com/cotaj6011-coder/AIot_20261029_HW2)
 - Live Web：`WAITING_FOR_USER`
 
 ## 已知限制
