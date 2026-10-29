@@ -258,4 +258,4 @@ with tabs[5]:
         downloads[0].download_button("下載 metrics.csv", metrics.to_csv().encode("utf-8-sig"), "metrics.csv", "text/csv", width="stretch")
         downloads[1].download_button("下載 selected_features.csv", result.raw_feature_map.to_csv(index=False).encode("utf-8-sig"), "selected_features.csv", "text/csv", width="stretch")
         downloads[2].download_button("下載 predictions.csv", predictions.to_csv(index=False).encode("utf-8-sig"), "predictions.csv", "text/csv", width="stretch")
-        st.success("本地分析完成。GitHub、公開 Web、NotebookLM 與對話 PDF 仍須由使用者完成或授權。")
+        st.success("分析與匯出已完成。公開 Web 已部署；NotebookLM 研究與對話 PDF 仍須由使用者完成。")

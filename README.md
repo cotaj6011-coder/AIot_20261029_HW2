@@ -43,7 +43,9 @@ python -m venv .venv
 Streamlit Community Cloud：建立 GitHub repo、將 `app.py` 設為入口、使用 `requirements.txt`。部署後依 `docs/SUBMISSION_CHECKLIST.md` 以無痕視窗驗證。
 
 - GitHub Repo：[AIot_20261029_HW2](https://github.com/cotaj6011-coder/AIot_20261029_HW2)
-- Live Web：`WAITING_FOR_USER`
+- Live Web：[Regression Studio](https://aiot20261029hw2-te9ncekg3z38qqt5muuddj.streamlit.app/)
+
+公開站已實測 Problem A、Problem B、指定 `50_Startups.csv` Custom URL、模型分析、圖表及 CSV 下載。驗收截圖見 [`public-desktop.png`](public-desktop.png) 與 [`public-mobile.png`](public-mobile.png)。
 
 ## 已知限制
 

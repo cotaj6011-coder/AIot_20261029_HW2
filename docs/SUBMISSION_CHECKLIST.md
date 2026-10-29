@@ -8,6 +8,6 @@
 - [ ] `WAITING_FOR_USER`：NotebookLM 真實研究摘要（100+ 中文字）
 - [ ] `WAITING_FOR_USER`：瀏覽器匯出實際 ChatGPT 對話 PDF 至 `docs/chatgpt_conversation.pdf`
 - [x] GitHub repo 已同步：`https://github.com/cotaj6011-coder/AIot_20261029_HW2`
-- [ ] `WAITING_FOR_USER`：部署 Streamlit Community Cloud
-- [ ] `WAITING_FOR_USER`：無痕視窗逐一驗證兩題與 Custom URL，填入連結/截圖
+- [x] Streamlit Community Cloud：[公開網站](https://aiot20261029hw2-te9ncekg3z38qqt5muuddj.streamlit.app/)
+- [x] 公開站驗證 Problem A、Problem B、指定 Custom URL、模型圖表與 CSV 下載；截圖已保存
 

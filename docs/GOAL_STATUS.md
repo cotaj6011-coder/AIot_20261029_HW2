@@ -66,7 +66,7 @@
 - 完成 README、CRISP-DM 報告模板、NotebookLM 待填模板、提交清單、GPT 輔助揭露及部署步驟。
 - 修改檔案：`README.md`、`docs/REPORT.md`、`docs/NOTEBOOKLM_RESEARCH.md`、`docs/SUBMISSION_CHECKLIST.md`、`docs/GOAL_STATUS.md`。
 - 驗證：`pip check` → No broken requirements；`compileall` 通過；完整 pytest 結果見下節。
-- GitHub repository 已建立並同步；`WAITING_FOR_USER`：NotebookLM 真實研究、ChatGPT 對話 PDF、Streamlit 公開部署、無痕公開網址驗證。
+- GitHub repository 與 Streamlit Community Cloud 公開網站均已部署；`WAITING_FOR_USER`：NotebookLM 真實研究與 ChatGPT 對話 PDF。
 - 下一步：使用者依提交清單完成外部操作。
 
 ## 最終測試證據
@@ -81,8 +81,6 @@
 
 1. 在 NotebookLM 完成真實研究並填寫 100+ 中文字摘要與來源。
 2. 將本次實際 ChatGPT/Codex 對話匯出 PDF，確認無敏感資訊。
-3. 在 Streamlit Community Cloud 部署 `app.py`，填入 README/報告連結。
-4. 用無痕瀏覽器逐一驗證兩題及指定 Custom URL，保存截圖。
 
 ## 2026-10-29 Goal 延續 — DONE（可自主部分）
 
@@ -123,11 +121,20 @@
 - `ui-desktop.png`、`ui-mobile.png` → 本機實際渲染視覺驗收通過；桌面與 430px 響應式版型均可閱讀。
 - 最終驗收修正 `scripts/generate_report_evidence.py` 的 Windows CP950 輸出問題，明確將 stdout 設為 UTF-8；重跑後 exit 0，`R²` 與中文診斷皆完整輸出。
 - `.\.venv\Scripts\python.exe -m pip check` → `No broken requirements found.`；`.\.venv\Scripts\python.exe -m compileall -q app.py src tests scripts` → exit 0；Streamlit `/_stcore/health` → HTTP 200 `ok`。
-- 剩餘人工事項：NotebookLM、對話 PDF、Streamlit 公開部署與公開網址截圖。
+- 剩餘人工事項：NotebookLM 與對話 PDF。
 
 ## 2026-10-30 GitHub 同步
 
 - Repository：`https://github.com/cotaj6011-coder/AIot_20261029_HW2.git`，追蹤分支 `origin/main`。
 - 推送前執行 `git fetch --prune origin`，本機與遠端分歧為 `0 0`，未覆蓋遠端變更。
 - 驗證：`29 passed, 1 warning`、`pip check` 通過、`compileall` exit 0、兩題證據重算 exit 0、Streamlit health HTTP 200 `ok`。
+
+## 2026-10-30 Streamlit Community Cloud 部署
+
+- Live Web：`https://aiot20261029hw2-te9ncekg3z38qqt5muuddj.streamlit.app/`。
+- 公開站實測 Problem A：完整分析成功，Selected 15、Baseline／Selected 指標、95% OLS 預測區間、殘差圖與五項診斷皆可見。
+- 公開站實測 Problem B：完整分析成功，Encoded 5、Selected 5。
+- Custom URL 使用規格指定 `50_Startups.csv`，成功載入、選擇 `Profit` 並完成分析。
+- 部署匯出分頁顯示三個 CSV 下載按鈕；`metrics.csv` 已實際下載成功。
+- 保存公開站實際渲染 `public-desktop.png` 與 `public-mobile.png`；人工檢視桌面與 430px 手機版均正常。
 
