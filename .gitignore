@@ -6,3 +6,7 @@ __pycache__/
 .env
 *.pyc
 
+# Private AI conversation records (local only)
+/docs/ChatGPT對話紀錄.pdf
+/docs/Codex對話紀錄.md
+
