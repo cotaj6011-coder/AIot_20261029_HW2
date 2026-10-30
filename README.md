@@ -22,6 +22,8 @@
 
 ## Dashboard 功能
 
+完整逐項驗收與實測證據請見 [`docs/HW2_FINAL_AUDIT.md`](docs/HW2_FINAL_AUDIT.md)。
+
 - Hero、深色 Sidebar、六階段 CRISP-DM Tabs、KPI 卡與響應式版型。
 - 資料型別、敘述統計、缺失率、重複特徵、疑似 ID、常數欄及清理策略。
 - Baseline／Selected 比較、CV 選 k 紀錄、原始與編碼後特徵對應、係數及截距。

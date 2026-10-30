@@ -83,6 +83,15 @@ def test_invalid_targets_and_shapes(frame, target):
         validate_analysis_data(frame, target)
 
 
+def test_missing_and_nonfinite_target_are_rejected():
+    frame = pd.DataFrame({"feature": range(20), "target": np.arange(20, dtype=float)})
+    with pytest.raises(ValueError, match="找不到指定 target"):
+        validate_analysis_data(frame, "missing")
+    frame.loc[0, "target"] = np.inf
+    with pytest.raises(ValueError, match="target 包含無限值"):
+        validate_analysis_data(frame, "target")
+
+
 def test_quality_summary_finds_missing_identifier_constant_and_duplicate():
     frame = pd.DataFrame({
         "id": range(20), "a": [*range(10), *([np.nan] * 10)],

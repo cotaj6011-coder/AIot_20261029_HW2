@@ -63,24 +63,23 @@
 
 ## Phase 6 — COMPLETE（可自主部分）
 
-- 完成 README、CRISP-DM 報告模板、NotebookLM 待填模板、提交清單、GPT 輔助揭露及部署步驟。
+- 完成 README、CRISP-DM 正式報告、NotebookLM 比較研究、提交清單、GPT 輔助揭露及部署步驟。
 - 修改檔案：`README.md`、`docs/REPORT.md`、`docs/NOTEBOOKLM_RESEARCH.md`、`docs/SUBMISSION_CHECKLIST.md`、`docs/GOAL_STATUS.md`。
 - 驗證：`pip check` → No broken requirements；`compileall` 通過；完整 pytest 結果見下節。
-- GitHub repository 與 Streamlit Community Cloud 公開網站均已部署；`WAITING_FOR_USER`：NotebookLM 真實研究與 ChatGPT 對話 PDF。
+- GitHub repository、Streamlit Community Cloud 與 NotebookLM 真實研究均已完成；`WAITING_FOR_USER`：ChatGPT 對話 PDF。
 - 下一步：使用者依提交清單完成外部操作。
 
 ## 最終測試證據
 
-- `.\.venv\Scripts\python.exe -m pytest -q` → `25 passed, 2 warnings in 6.31s`。兩項 warning 均來自 Human–AI 設計矩陣的 VIF 病態/秩不足提示；Web 診斷會如實顯示共線性疑慮，不影響模型、區間及其他測試通過。
+- `.\.venv\Scripts\python.exe -m pytest -q` → `29 passed, 1 warning`。warning 是測試刻意輸入未知類別時 sklearn 告知以全零編碼，符合 `handle_unknown='ignore'` 預期行為。
 - `.\.venv\Scripts\python.exe -m pip check` → `No broken requirements found.`
 - `.\.venv\Scripts\python.exe -m compileall -q app.py src tests` → exit 0。
-- 指定 Custom URL 完整管線 → 50 列 × 5 欄、10 筆測試預測、6 個 One-Hot 後入選特徵。
+- 指定 Custom URL 完整管線 → 50 列 × 5 欄、10 筆測試預測、5 個 One-Hot 後入選特徵。
 - Streamlit health → HTTP 200 `ok`。
 
 ## WAITING_FOR_USER
 
-1. 在 NotebookLM 完成真實研究並填寫 100+ 中文字摘要與來源。
-2. 將本次實際 ChatGPT/Codex 對話匯出 PDF，確認無敏感資訊。
+1. 將本次實際 ChatGPT/Codex 對話匯出 PDF，確認無敏感資訊。
 
 ## 2026-10-29 Goal 延續 — DONE（可自主部分）
 
@@ -104,7 +103,7 @@
 - 統一 Plotly 字型、色彩、背景、格線、圖例與間距；加入窄螢幕 media query。
 - UI 自動測試會實際載入預設題並點擊完整分析；本機 Streamlit health endpoint 另行驗證。
 - 已以本機 Streamlit 實際渲染並保存 `ui-desktop.png`（1,440 × 1,100）與 `ui-mobile.png`（430 × 932）。人工檢視確認桌面版 Hero／Sidebar／KPI／Tabs 對齊正常，手機版側欄收合、卡片直向排列、標題與說明文字換行正常，未見水平溢位。
-- Windows Computer Use 因無法可靠判定瀏覽器 URL 而依安全機制停止；本機 UI 證據改由實際渲染截圖、AppTest 點擊完整分析及 HTTP runtime 三者交叉驗證。公開部署後的網址與截圖仍列 `WAITING_FOR_USER`。
+- Windows Computer Use 曾因無法可靠判定瀏覽器 URL 而依安全機制停止；後續改以 Playwright 完成公開站實際操作驗收，部署網址與完整截圖均已保存並同步至 GitHub。
 
 ### 報告與實測數據
 
@@ -121,7 +120,7 @@
 - `ui-desktop.png`、`ui-mobile.png` → 本機實際渲染視覺驗收通過；桌面與 430px 響應式版型均可閱讀。
 - 最終驗收修正 `scripts/generate_report_evidence.py` 的 Windows CP950 輸出問題，明確將 stdout 設為 UTF-8；重跑後 exit 0，`R²` 與中文診斷皆完整輸出。
 - `.\.venv\Scripts\python.exe -m pip check` → `No broken requirements found.`；`.\.venv\Scripts\python.exe -m compileall -q app.py src tests scripts` → exit 0；Streamlit `/_stcore/health` → HTTP 200 `ok`。
-- 剩餘人工事項：NotebookLM 與對話 PDF。
+- 剩餘人工事項：對話 PDF。NotebookLM 真實研究已於 2026-10-31 完成並整合。
 
 ## 2026-10-30 GitHub 同步
 
@@ -137,4 +136,12 @@
 - Custom URL 使用規格指定 `50_Startups.csv`，成功載入、選擇 `Profit` 並完成分析。
 - 部署匯出分頁顯示三個 CSV 下載按鈕；`metrics.csv` 已實際下載成功。
 - 保存公開站實際渲染 `public-desktop.png` 與 `public-mobile.png`；人工檢視桌面與 430px 手機版均正常。
+
+## 2026-10-31 最終驗收
+
+- 新增 `docs/HW2_FINAL_AUDIT.md`，逐項記錄 PASS／BLOCKED、實際證據、必要項目完成率及加分預估。
+- 補測 URL 資料列／欄上限及 target 缺失／非有限值；`pytest -q` → `32 passed, 1 warning`。
+- `pip check` → `No broken requirements found.`；`compileall -q app.py src tests scripts` → exit 0；兩題證據重算 exit 0。
+- Playwright 公開站實測 Problem A、Problem B、指定 Custom URL（Profit）、模型評估、95% 區間、三個下載按鈕及 430px 手機版均通過。
+- 可自主完成項目 22/22 通過；全體必要項目 22/23（95.7%）。唯一 `BLOCKED`：本人匯出真實對話 PDF。
 

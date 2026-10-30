@@ -185,7 +185,7 @@ Kaggle Human–AI Interaction（Problem B 候選）：https://www.kaggle.com/dat
 [ ] 確認教師「對話 PDF」是否必交（題目中的 AI 協助要求為必須，繳交列表又列 optional；先保守準備）。
 [ ] 確認 GitHub / Web 平台與報告繳交格式。
 
-10. 實作狀態（2026-10-29 實測）
+10. 實作狀態（2026-10-31 最終實測）
 
 > 本節是目前工作樹的實際狀態；上方 `[ ]` 保留為原始規格清單。逐項命令與結果見 `docs/GOAL_STATUS.md`。
 
@@ -199,8 +199,9 @@ Kaggle Human–AI Interaction（Problem B 候選）：https://www.kaggle.com/dat
 | Phase 5 Web／加分 | DONE | 兩題下拉、Custom HTTPS CSV／上傳、快取、狀態重置、抽樣揭露及三種下載 |
 | Phase 6 可自主文件 | DONE | README、實測 REPORT、研究模板、提交清單與部署步驟 |
 | 本機 UI 視覺驗收 | DONE | 實際渲染 `ui-desktop.png`（1,440 × 1,100）與 `ui-mobile.png`（430 × 932）；桌面與響應式版型人工檢視通過 |
-| NotebookLM 真實研究 | WAITING_FOR_USER | 必須由使用者在 NotebookLM 實際研究並填入 100+ 中文字 |
+| NotebookLM 真實研究 | DONE | 2026-10-31 原始匯出已保留；100+ 字摘要、比較表、限制分析與 7 篇外部文獻已整合至 `docs/REPORT.md` |
 | ChatGPT 對話 PDF | WAITING_FOR_USER | 必須由實際對話匯出 |
-| GitHub push／公開 Web | WAITING_FOR_USER | 未取得遠端目標與發布授權，不虛構完成 |
+| GitHub push／公開 Web | DONE | `origin/main` 已同步；Streamlit Community Cloud 公開站已部署並完成兩題、Custom URL、圖表與下載驗收 |
+| 最終驗收 | DONE | `docs/HW2_FINAL_AUDIT.md`：可自主項目 22/22 通過，加分預估 +3/3；僅真實對話 PDF 待本人匯出 |
 
 Flood 競賽不是教師指定必選題；匿名 Kaggle API 實測 HTTP 401。正式 14–39 特徵 Kaggle 條件已由 Human–AI Interaction 的 20 個原始特徵滿足，因此 Flood 權限不阻礙本地完成定義。

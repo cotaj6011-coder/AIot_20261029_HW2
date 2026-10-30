@@ -4,7 +4,7 @@ import socket
 import pandas as pd
 import pytest
 
-from src.datasets import MAX_BYTES, load_builtin, load_csv_url, validate_public_https_url
+from src.datasets import MAX_BYTES, MAX_COLUMNS, MAX_ROWS, load_builtin, load_csv_url, validate_public_https_url
 
 
 def public_resolver(*args, **kwargs):
@@ -97,6 +97,22 @@ def test_csv_loader_rejects_oversized_payload(monkeypatch):
     Session.response = Response(body=b"a,target\n" + b"1,2\n" * (MAX_BYTES // 4 + 1))
     with pytest.raises(ValueError, match="10 MB"):
         load_csv_url("https://example.com/data.csv", session=Session)
+    Session.response = Response()
+
+
+@pytest.mark.parametrize("body,expected", [
+    (b"feature,target\n" + b"1,2\n" * (MAX_ROWS + 1), "100,000"),
+    (
+        (",".join(f"c{i}" for i in range(MAX_COLUMNS + 1)) + "\n" +
+         ",".join("1" for _ in range(MAX_COLUMNS + 1)) + "\n").encode(),
+        "200",
+    ),
+])
+def test_csv_loader_rejects_row_or_column_limit(monkeypatch, body, expected):
+    monkeypatch.setattr(socket, "getaddrinfo", public_resolver)
+    Session.response = Response(body=body)
+    with pytest.raises(ValueError, match=expected):
+        load_csv_url("https://example.com/too-large.csv", session=Session)
     Session.response = Response()
 
 
