@@ -10,3 +10,6 @@ __pycache__/
 /docs/ChatGPT對話紀錄.pdf
 /docs/Codex對話紀錄.md
 
+# Generated local reports
+/output/pdf/*.pdf
+

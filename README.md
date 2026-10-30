@@ -18,6 +18,10 @@
 
 ![Baseline、Selected、預測區間、殘差與回歸診斷](docs/screenshots/model-evaluation-complete.png)
 
+### 最新公開網站（Deployment & Export）
+
+![更新後的 CRISP-DM 導覽、下載按鈕與成功提示](docs/screenshots/live-dashboard-latest.png)
+
 以 Streamlit 實作現代化 ML Dashboard 與完整 CRISP-DM 流程，包含兩個可執行預設回歸題、任意公開 HTTPS CSV、`LinearRegression`、訓練集內 5-fold CV 特徵選擇、MAE/MSE/RMSE/R²、95% OLS prediction interval 與殘差/假設診斷。
 
 ## Dashboard 功能
